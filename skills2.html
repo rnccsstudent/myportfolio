@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            background-color: #333;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #f0db4f;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #333;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            padding: 15px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .skill-card p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .progress-bar {
+            background-color: #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .progress {
+            height: 8px;
+            border-radius: 10px;
+        }
+
+        /* Custom colors */
+        .html {
+            background-color: #e44d26;
+        }
+
+        .css {
+            background-color: #2965f1;
+        }
+
+        .js {
+            background-color: #f0db4f;
+        }
+
+        .php {
+            background-color: #4f5b93;
+        }
+
+        .python {
+            background-color: #3572A5;
+        }
+
+        .mysql {
+            background-color: #00618a;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .skills-wrapper {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" id="skills">
+        <h1>My Skills</h1>
+
+        <div class="skills-wrapper">
+            <!-- Skill Card -->
+            <div class="skill-card">
+                <img src="https://img.icons8.com/ios/452/html-5.png" alt="HTML">
+                <h3>HTML</h3>
+                <p>Advanced</p>
+                <div class="progress-bar">
+                    <div class="progress html" style="width: 90%;"></div>
+                </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div class="skill-card">
+                <img src="https://img.icons8.com/ios/452/css3.png" alt="CSS">
+                <h3>CSS</h3>
+                <p>Advanced</p>
+                <div class="progress-bar">
+                    <div class="progress css" style="width: 85%;"></div>
+                </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div class="skill-card">
+                <img src="https://img.icons8.com/ios/452/javascript.png" alt="JavaScript">
+                <h3>JavaScript</h3>
+                <p>Intermediate</p>
+                <div class="progress-bar">
+                    <div class="progress js" style="width: 70%;"></div>
+                </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div class="skill-card">
+                <img src="https://img.icons8.com/ios/452/php.png" alt="PHP">
+                <h3>PHP</h3>
+                <p>Intermediate</p>
+                <div class="progress-bar">
+                    <div class="progress php" style="width: 75%;"></div>
+                </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div class="skill-card">
+                <img src="https://img.icons8.com/ios/452/python.png" alt="Python">
+                <h3>Python</h3>
+                <p>Beginner</p>
+                <div class="progress-bar">
+                    <div class="progress python" style="width: 60%;"></div>
+                </div>
+            </div>
+
+            <!-- Skill Card -->
+            <div class="skill-card">
+                <img src="https://img.icons8.com/ios/452/mysql.png" alt="MySQL">
+                <h3>MySQL</h3>
+                <p>Intermediate</p>
+                <div class="progress-bar">
+                    <div class="progress mysql" style="width: 80%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Pranab Mahata. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (mobileMenu.style.display === "block") {
+                mobileMenu.style.display = "none";
+            } else {
+                mobileMenu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #000;
+            --card-bg: white;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+        body.dark-mode {
+            --bg-color: #181818;
+            --text-color: #fff;
+            --card-bg: #252525;
+            --shadow-color: rgba(255, 255, 255, 0.1);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s;
+            padding: 20px;
+        }
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        .home-icon {
+            font-size: 24px;
+            text-decoration: none;
+            margin-right: 10px;
+            color: var(--text-color);
+        }
+        .title-container {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+        }
+        .title-container span {
+            /* transition: color 0.5s; */
+            transition: color 3s;
+
+        }
+        .search-box {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+        .dark-mode-toggle {
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px var(--shadow-color);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        .project-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .project-desc {
+            font-size: 14px;
+            color: gray;
+            margin-top: 5px;
+        }
+        .project-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .project-link {
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            transition: 0.3s;
+        }
+        .view-link {
+            background-color: #007bff;
+        }
+        .view-link:hover {
+            background-color: #0056b3;
+        }
+        .source-link {
+            background-color: #28a745;
+        }
+        .source-link:hover {
+            background-color: #1d7e2f;
+        }
+        @media (max-width: 600px) {
+            .top-bar {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .search-box {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="index.html" class="home-icon">🏠</a>
+        <div class="title-container" id="title">
+            <span>M</span><span>y &nbsp;</span> 
+            <span>P</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span>
+        </div>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search projects..." onkeyup="searchProjects()">
+    </div>
+
+    <div class="projects-container" id="projects"></div>
+
+    <script>
+        const projects = [
+            { title: "IoT NPTEL", description: "Preparation for IoT, NPTEL exam", view: "https://rnccsstudent.github.io/iot_exam_prep_nptel/",  source:"https://github.com/rnccsstudent/iot_exam_prep_nptel" },
+            { title: "RNC Website", description: "My first college website.", view: "https://rnccomputerscience.github.io/.org/",  source:"https://github.com/rnccomputerscience/.org" },
+            { title: "Sleep_Prediction", description: "Predict sleep time and get suggestions.", view: "https://bcrec-sleep.streamlit.app/", source:"https://github.com/rnccsstudent/sleep_predict" },
+            { title: "Portfolio Website", description: "My personal portfolio.", view: "http://pranab.infinityfreeapp.com/portfolio", source: "NotAvailable.html" },
+            { title: "AmazoneClone", description: "A simple amazon clone app using html,css and javascript", view: "https://rnccsstudent.github.io/AmazonClone/", source:"https://github.com/rnccsstudent/AmazonClone" },
+            { title: "GCSE", description: "A Google Console Search Engine", view: "NotAvailable.html", source: "https://github.com/rnccsstudent/gcse"},
+            { title: "CheatSheet", description: "Programming Cheatsheet where you keeps which is important",view: "https://rnccsstudent.github.io/cheatsheet/", source:"https://github.com/rnccsstudent/cheatsheet" },
+            { title: "BP_Disease_Detection", description: "where you check Chronic Kidney disease and Adrenal and Thyroid Disorders",view:"https://bcrecmca2023-25g19.streamlit.app/", source:"https://github.com/rnccsstudent/BP_Disease_Detection" },
+            { title: "Demo_Website", description: "This is the landing page", view: "https://rnccsstudent.github.io/demo_website/#", source:"https://github.com/rnccsstudent/demo_website" },
+            { title: "Multiple Disease Prediction System", description: "This is the machine learning project", view: "https://mwgimqydcs7fuywgbr9xa6.streamlit.app/", source:"https://github.com/rnccsstudent/ml_pr3" },
+            { title: "NetflixClone", description: "Simple Netflix page using html,css and javascript", view: "https://rnccsstudent.github.io/NetflixClone/", source:"https://github.com/rnccsstudent/NetflixClone" },
+            { title: "CodeCamp", description: "Where you keep your favorite coding videos", view: "https://rnccsstudent.github.io/codecamp/", source:"https://github.com/rnccsstudent/codecamp" },
+            { title: "Python Compiler", description: "Where you can run python code", view: "https://rnccsstudent.github.io/compiler/", source:"https://github.com/rnccsstudent/compiler" },
+            { title: "Clock", description: "where you see current time", view: "https://rnccsstudent.github.io/clock/", source:"https://github.com/rnccsstudent/clock" },
+            { title: "Tic-tac-toe", description: "where you can play simple tic-tac-toe game", view: "https://rnccsstudent.github.io/tic-tac-toe/", source:"https://github.com/rnccsstudent/tic-tac-toe" },
+            { title: "Calculator", description: "where you can calculate simple calculation", view: "https://rnccsstudent.github.io/calculator/", source:"https://github.com/rnccsstudent/calculator" },
+            { title: "Portfolio Website2", description: "This is the portfolio", view: "https://rnccsstudent.github.io/Portfolio/", source:"https://github.com/rnccsstudent/Portfolio" },
+            { title: "Landing page", description: "This is the landing page", view: "https://rnccsstudent.github.io/CODSOFT/", source:"https://github.com/rnccsstudent/CODSOFT" },
+            { title: "My YouTube Collection", description: "This is my personal project", view: "http://pranab.infinityfreeapp.com", source: "NotAvailable.html"},
+            { title: "Spoken English", description: "Practice it for interview", view: "https://rnccsstudent.github.io/SpokenEnglish/", source: "https://github.com/rnccsstudent/SpokenEnglish" },
+            { title: "Career Guide", description: "Ready your daily task", view: "https://rnccsstudent.github.io/Guide/", source: "https://github.com/rnccsstudent/Guide" },
+            { title: "Sleep_Prediction 2", description: "Predict Sleep Health", view: "https://mca-sleep.streamlit.app/", source:"https://github.com/rnccsstudent/mca-sleep" },
+            { title: "Hair Cutting Date", description: "My personal hair cutting date", view: " https://rnccsstudent.github.io/HairCuttingDate/", source:"https://github.com/rnccsstudent/HairCuttingDate" },
+            { title: "Applied Job", description: "My personal project", view: " https://applyjob.streamlit.app/", source:"https://github.com/rnccsstudent/job_tracker" },
+            { title: "Translator", description: "free instance will spin down with inactivity, which can delay requests by 50 seconds or more.", view: " https://translator-by-pranab.netlify.app/", source:"https://github.com/rnccsstudent/Translator" },
+            { title: "Hotspot-Usage-Tracker", description: "A simple yet powerful Python GUI app that helps you track daily internet usage, especially from Wi-Fi/hotspot, and shows which apps are using your internet in real time.", view: "https://github.com/rnccsstudent/Hotspot-Usage-Tracker", source:"https://github.com/rnccsstudent/Hotspot-Usage-Tracker" },
+            { title: "Grocery-list", description: "A simple and interactive grocery list application built with React. Users can add, search, check off, and delete grocery items. The list is stored in the browser's localStorage, so it persists across sessions.", view: "grocery-list-by-pranab.netlify.app", source:"https://github.com/rnccsstudent/Grocery-List" },
+            { title: "📱Digital-Wellbeing", description: "This project is a web-based activity tracker inspired by Digital Wellbeing tools. It displays your screen time data for each day of the week, shows a breakdown of app usage, and supports features like light/dark mode, interactive sliders, and charts.", view: "https://rnccsstudent.github.io/Digital_Wellbeing/", source:"https://github.com/rnccsstudent/Digital_Wellbeing" },
+            { title: "💬Chatbot", description: "A simple Streamlit app that shows how to build a chatbot, Credit goes to streamlit", view: "https://chatbot-pranab.streamlit.app/", source:"https://github.com/rnccsstudent/chatbot" },
+            { title: "Audio to Text", description: "simple audio to text converter with free tier", view: "https://github.com/rnccsstudent/audio-to-text/tree/main", source:"https://github.com/rnccsstudent/audio-to-text/tree/main" },
+            { title: "Show Color", description: "You can see any colors", view: "https://showcolor.netlify.app/", source:"https://github.com/rnccsstudent/showcolor" },
+            { title: "Basic Python", description: "Simple Python Program and basics understanding", view: "https://basic-python-pranab.netlify.app/", source:"https://github.com/rnccsstudent/basic-python/tree/main" },
+             { title: "Job-Tracker", description: "Applied Job", view: "https://job-tracker-private.netlify.app/", source:"https://github.com/rnccsstudent/basic-python/tree/main" },
+
+        ];
+
+        function loadProjects() {
+            const container = document.getElementById('projects');
+            container.innerHTML = projects.map(proj => `
+                <div class="project-card">
+                    <div class="project-title">${proj.title}</div>
+                    <div class="project-desc">${proj.description}</div>
+                    <div class="project-links">
+                        <a class="project-link view-link" href="${proj.view}" target="_blank">View Project</a>
+                        <a class="project-link source-link" href="${proj.source}" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function searchProjects() {
+            const searchValue = document.getElementById('search').value.toLowerCase();
+            document.getElementById('projects').innerHTML = projects.filter(proj =>
+                proj.title.toLowerCase().includes(searchValue)
+            ).map(proj => `
+                <div class="project-card">
+                    <div class="project-title">${proj.title}</div>
+                    <div class="project-desc">${proj.description}</div>
+                    <div class="project-links">
+                        <a class="project-link view-link" href="${proj.view}" target="_blank">View Project</a>
+                        <a class="project-link source-link" href="${proj.source}" target="_blank">Source Code</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function changeColors() {
+            const letters = document.querySelectorAll("#title span");
+            const colors = ["red", "blue", "green", "orange", "purple", "pink", "cyan", "lime", "magenta", "yellow"];
+            
+            setInterval(() => {
+                letters.forEach(letter => {
+                    letter.style.color = colors[Math.floor(Math.random() * colors.length)];
+                });
+            }, 700);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadProjects();
+            changeColors();
+        });
+    </script>
+
+</body>
+</html>

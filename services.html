@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%; /* Full height for the page */
+            font-family: Arial, sans-serif;
+            color: #fff;  
+            /* background-color: #1c1c1c; */
+        }
+        html:not(.no-js) [data-aos^="fade"][data-aos^="fade"] {
+            opacity: 1;
+            transition-property: opacity, transform, -webkit-transform;
+        }
+        body {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            min-height: 100vh;
+        }
+        
+        /* Navigation Bar */
+        /* nav {
+            width: 100%;
+            background-color: #333;
+            padding: 15px 0;
+        } */
+
+        /* nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        } */
+
+        /* nav ul li a:hover {
+            color: #f0db4f;
+        } */
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #333;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            padding: 15px;
+        }
+/* 
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: #fff;
+        } */
+
+        .container {
+            width: 100%;
+            /* max-width: 1200px; */
+            padding: 50px 20px;
+            /* background-color: #fff; */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            overflow: scroll;
+        }
+
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: antiquewhite;
+            margin-bottom: revert;
+        }
+
+        .services-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+            gap: 15px;
+            max-height: 500px; /* স্ক্রল করা যাবে */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding: 10px;
+        }
+       
+        .service-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+            position: relative;
+
+        }
+        a {
+           color: #077b32;
+        }
+        footer p {
+            font-size: 1rem;
+        }
+        .social-links {
+            margin-top: 10px;
+            padding-bottom: 30px; 
+    }
+    .social-links a {
+        margin: 0 10px;
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .social-links a:hover {
+        color: #4caf50;
+    }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .services-wrapper {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                max-height: 600px; /* Mobile-এ কমিয়ে দেওয়া */
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Pranab <span>Mahata</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="projects.html">Projects</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="services.html">Services</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="services.html">Service</a>
+                <a href="contact.html">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="services">
+        <h1>My Services</h1>
+
+        <div class="services-wrapper">
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Web Development</h3>
+                <p>Building responsive and interactive websites using HTML, CSS, JavaScript, and PHP.</p>
+            </div>
+
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Backend Development</h3>
+                <p>Creating scalable and efficient server-side applications with PHP and MySQL.</p>
+            </div>
+
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Machine Learning</h3>
+                <p>Implementing AI solutions and predictive models using Python and machine learning libraries.</p>
+            </div>
+
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Mobile App Development</h3>
+                <p>Developing cross-platform mobile applications using frameworks like React Native.</p>
+            </div>
+
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>SEO Optimization</h3>
+                <p>Improving the visibility and ranking of websites on search engines.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>UI/UX Design</h3>
+                <p>Focus on the visual and functional aspects of user interfaces to ensure a seamless user experience.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Cybersecurity</h3>
+                <p>Focus on securing websites, networks, and applications against cyber threats, hacking attempts, and data breaches.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Cloud Computing</h3>
+                <p>Develop and deploy applications using cloud services (like AWS, Azure, or Google Cloud), including hosting, scalability, and serverless architecture.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Blockchain Development</h3>
+                <p>Building decentralized applications (dApps), smart contracts, and working with blockchain technologies like Ethereum and Solana.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>DevOps</h3>
+                <p>Implementing continuous integration/continuous deployment (CI/CD) pipelines, automating workflows, and managing infrastructure with tools like Docker, Kubernetes, and Jenkins.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Game Development</h3>
+                <p>Creating video games or interactive simulations, with expertise in game engines like Unity or Unreal Engine.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>E-commerce Development</h3>
+                <p>Building online stores and marketplaces using platforms like Shopify, WooCommerce, or custom-built solutions.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>API Development</h3>
+                <p>Designing and building robust, secure, and scalable APIs (Application Programming Interfaces) for web or mobile applications.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Data Science and Analytics</h3>
+                <p>Working with data, creating dashboards, and performing statistical analysis to derive insights and help with decision-making.</p>
+            </div>
+            <!-- Service Card -->
+            <div class="service-card">
+                <h3>Virtual and Augmented Reality (VR/AR) Development</h3>
+                <p>Developing immersive experiences for applications in gaming, education, healthcare, and other industries.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Pranab Mahata. All Rights Reserved.</p>
+        <p>Visit my <a href="https://www.linkedin.com/in/pranab28042002/">LinkedIn</a> for more details.</p>
+        <div class="social-links">
+            <a href="https://github.com/rnccsstudent" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.facebook.com/pranab.mahata.9659" target="_blank" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/" target="_blank" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://youtube.com/@pranabloveseveryone?si=J3dmpZ8MiRNctUAm" target="_blank" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (mobileMenu.style.display === "block") {
+                mobileMenu.style.display = "none";
+            } else {
+                mobileMenu.style.display = "block";
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({offset:0});
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

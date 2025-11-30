@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Pranab Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%; /* Full height for the page */
+            font-family: Arial, sans-serif;
+            color: #fff;  
+            background-color: #1c1c1c;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            min-height: 100vh;
+        }
+
+        /* Navbar Styles */
+        /* nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            z-index: 10; /* Ensure navbar is above other content 
+        } */
+
+        /* .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        } */
+
+        /* .hamburg {
+            display: none;     Hide hamburger by default 
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+
+        } */
+
+        /* .dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #333;
+            width: 100%;
+            padding: 10px;
+            z-index: 5;
+        } */
+
+        /* .dropdown a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .dropdown a:hover {
+            background-color: #555;
+        } */
+
+        /* Mobile View */
+        /* @media (max-width: 768px) {
+            .hamburg {
+                display: block; /* Show hamburger on small screens 
+            }
+
+            .links {
+                display: none; /* Hide links in mobile view 
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .dropdown {
+                display: block;
+            }
+
+            .dropdown a {
+                padding: 15px;
+                font-size: 18px;
+            } */
+
+            /* Fix for Skill Cards on Mobile */
+            /* .skills-wrapper {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Smaller columns 
+                gap: 15px;
+            }
+
+            .skill-card {
+                padding: 15px;
+            }
+        } */
+
+        /* Main Content */
+        .container {
+            /* margin-top: 80px; Adjust according to navbar height 
+            padding: 20px; */
+            overflow: auto; /* Allow scrolling */
+        }
+
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Default grid */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .skill-card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 10px;
+        } 
+
+        .progress {
+            height: 100%;
+            background-color: #4caf50;
+        }
+        /* own code */
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            /* margin-bottom: 50px; */
+            /* color: #333; */
+        }
+        /* .contact-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        } */
+
+        .contact-info div {
+            flex: 1;
+            padding: 10px;
+        }
+
+        /* .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        } */
+
+        /* .contact-info p {
+            font-size: 1rem;
+            color: #777;
+        } */
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        form button {
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #4caf50;
+        } 
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+            /* height: 100%; */
+        }
+
+        footer a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .social-links {
+           margin-top: 10px;
+           padding-bottom: 30px; 
+    }
+    .social-links a {
+        margin: 0 10px;
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .social-links a:hover {
+        color: #4caf50;
+    }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Pranab <span>Mahata</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="projects.html">Projects</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="services.html">Services</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="projects.html">Projects</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container">
+        <!-- <h1 data-aos="fade-up" data-aos-duration="1500">Contact Me</h1> -->
+        <!-- <div class="skills-wrapper"> -->
+            <div class="container" id="contact">
+                <h1>Contact Me</h1>
+        
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div>
+                        <h3>Email</h3>
+                        <p>pranabmahata197@gmail.com</p>
+                    </div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 7479257078</p>
+                    </div>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Bankura, India</p>
+                    </div>
+                </div>
+        
+                <!-- Contact Form -->
+                <form action="submit_form.php" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+            <div class="container mt-4">
+                <div class="row">  
+                            <div class="col-sm-8">
+                            <h4> Address Map</h4>
+                                <!-- <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJb_fXn-eT9zkRhMV8RC2eBRw&key=AIzaSyD0emjrt0kxceZQTw1Z1mbYVtO8J6tt96U"allowfullscreen></iframe>  -->
+                                <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3675.719609556151!2d86.75907707530979!3d22.88681397926924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDUzJzEyLjUiTiA4NsKwNDUnNDIuMCJF!5e0!3m2!1sen!2sin!4v1739364592550!5m2!1sen!2sin"allowfullscreen></iframe> 
+                            </div>
+                            
+                </div>
+            
+                   <!-- <div class="main_contant">
+                    <div class="header">HELPLINE : +917479257078  Call or WhatsApp or SMS (For any Instant reply)</div>
+                    </div> -->
+            
+            
+             </div>
+           
+        <!-- </div> -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Pranab Mahata. All Rights Reserved.</p>
+        <p>Visit my <a href="https://www.linkedin.com/in/pranab28042002/">LinkedIn</a> for more details.</p>
+        <div class="social-links">
+            <a href="https://github.com/rnccsstudent" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.facebook.com/pranab.mahata.9659" target="_blank" title="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/yourusername" target="_blank" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://youtube.com/@pranabloveseveryone?si=J3dmpZ8MiRNctUAm" target="_blank" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 0 });
+
+        function hamburg() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.style.display = 'block';
+        }
+
+        function cancel() {
+            const dropdown = document.querySelector('.dropdown');
+            dropdown.style.display = 'none';
+        }
+    </script>
+    <script src="script.js"></script> <!-- Ensure the JS file is linked correctly -->
+
+</body>
+
+</html>

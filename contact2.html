@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            background-color: #333;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #f0db4f;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #333;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            padding: 15px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        /* Contact Form */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .contact-info div {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        form button {
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #f0db4f;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Map */
+        .map {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+          footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+    }
+    footer a {
+        margin: 0 10px;
+        color: white;
+        text-decoration: none;
+    }
+    footer a:hover {
+        color: #ffcc00;
+    }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 1.8rem;
+                color: #fff;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <ul class="mobile-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" id="contact">
+        <h1>Contact Me</h1>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <div>
+                <h3>Email</h3>
+                <p>pranabmahata197@gmail.com</p>
+            </div>
+            <div>
+                <h3>Phone</h3>
+                <p>+91 7479257078</p>
+            </div>
+            <div>
+                <h3>Location</h3>
+                <p>Bankura,West Bengal, India</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form action="submit_form.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Map -->
+    <!-- <div class="map">
+        <h3></h3>
+        <iframe src=""></iframe>
+    </div> -->
+    <div class="container mt-4">
+	<div class="row">  
+				<div class="col-sm-8">
+				<h4> Find Me Here</h4>
+					<iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3675.719609556151!2d86.75907707530979!3d22.88681397926924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDUzJzEyLjUiTiA4NsKwNDUnNDIuMCJF!5e0!3m2!1sen!2sin!4v1739364592550!5m2!1sen!2sin" width="1500" height="1200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"allowfullscreen></iframe> 
+				</div>
+	</div>
+ </div>
+    <!-- Footer -->
+   <footer>
+    <p>&copy; 2025 My Portfolio. All Rights Reserved.</p>
+    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f fa-2x"></i></a>
+    <a href="https://twitter.com/"><i class="fab fa-twitter fa-2x"></i></a>
+    <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+   </footer>
+
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            if (mobileMenu.style.display === "block") {
+                mobileMenu.style.display = "none";
+            } else {
+                mobileMenu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
